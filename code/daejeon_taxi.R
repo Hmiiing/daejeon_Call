@@ -1,27 +1,27 @@
 setwd("C:/Users/a4985/OneDrive/desktop/taxi/daejeon")
-######daejeon_ÀüÃ³¸®#####
+######daejeon_ì „ì²˜ë¦¬#####
 daejeoncall <- read.csv("daejeoncall.csv")
 
-###±¸³ª´©±â####
-#À¯¼º±¸  133
-#Áß±¸/¼­±¸  642
-#µ¿±¸  643
-#´ë´ö±¸  648
+###êµ¬ë‚˜ëˆ„ê¸°####
+#ìœ ì„±êµ¬  133
+#ì¤‘êµ¬/ì„œêµ¬  642
+#ë™êµ¬  643
+#ëŒ€ë•êµ¬  648
 
 #########################################################################
-######³¯¾¾#####
+######ë‚ ì”¨#####
 w1<-read.csv("2016.csv")
-colnames(w1)<-c("ÁöÁ¡","ÀÏ½Ã","±â¿Â","°­¼ö·®","Ç³¼Ó","Ç³Çâ","½Àµµ")
+colnames(w1)<-c("ì§€ì ","ì¼ì‹œ","ê¸°ì˜¨","ê°•ìˆ˜ëŸ‰","í’ì†","í’í–¥","ìŠµë„")
 w2<-read.csv("2017.csv")
-colnames(w2)<-c("ÁöÁ¡","ÀÏ½Ã","±â¿Â","°­¼ö·®","Ç³¼Ó","Ç³Çâ","½Àµµ")
+colnames(w2)<-c("ì§€ì ","ì¼ì‹œ","ê¸°ì˜¨","ê°•ìˆ˜ëŸ‰","í’ì†","í’í–¥","ìŠµë„")
 w3<-read.csv("2018.csv")
-colnames(w3)<-c("ÁöÁ¡","ÀÏ½Ã","±â¿Â","°­¼ö·®","Ç³¼Ó","Ç³Çâ","½Àµµ")
+colnames(w3)<-c("ì§€ì ","ì¼ì‹œ","ê¸°ì˜¨","ê°•ìˆ˜ëŸ‰","í’ì†","í’í–¥","ìŠµë„")
 w11<-read.csv("2016_2.csv")
-colnames(w11)<-c("ÁöÁ¡","ÀÏ½Ã","±â¿Â","Ç³Çâ","Ç³¼Ó","°­¼ö·®","½Àµµ")
+colnames(w11)<-c("ì§€ì ","ì¼ì‹œ","ê¸°ì˜¨","í’í–¥","í’ì†","ê°•ìˆ˜ëŸ‰","ìŠµë„")
 w22<-read.csv("2017_2.csv")
-colnames(w22)<-c("ÁöÁ¡","ÀÏ½Ã","±â¿Â","Ç³Çâ","Ç³¼Ó","°­¼ö·®","½Àµµ")
+colnames(w22)<-c("ì§€ì ","ì¼ì‹œ","ê¸°ì˜¨","í’í–¥","í’ì†","ê°•ìˆ˜ëŸ‰","ìŠµë„")
 w33<-read.csv("2018_2.csv")
-colnames(w33)<-c("ÁöÁ¡","ÀÏ½Ã","±â¿Â","Ç³Çâ","Ç³¼Ó","°­¼ö·®","½Àµµ")
+colnames(w33)<-c("ì§€ì ","ì¼ì‹œ","ê¸°ì˜¨","í’í–¥","í’ì†","ê°•ìˆ˜ëŸ‰","ìŠµë„")
 daejeon_w<-rbind(w1,w2,w3,w11,w22,w33)
 write.csv(daejeon_w,"daejeon_w.csv")
 #######################################################################
@@ -30,69 +30,69 @@ daejeoncall <- daejeoncall[,-1]
 daejeon_w <- read.csv("daejeon_w.csv")
 daejeon_w <- daejeon_w[,-1]
 
-daejeoncall$±âÁØ³â¿ùÀÏ <- as.character(daejeoncall$±âÁØ³â¿ùÀÏ)
-daejeoncall$±âÁØ³â¿ùÀÏ <- as.Date(daejeoncall$±âÁØ³â¿ùÀÏ,"%Y%m%d")
+daejeoncall$ê¸°ì¤€ë…„ì›”ì¼ <- as.character(daejeoncall$ê¸°ì¤€ë…„ì›”ì¼)
+daejeoncall$ê¸°ì¤€ë…„ì›”ì¼ <- as.Date(daejeoncall$ê¸°ì¤€ë…„ì›”ì¼,"%Y%m%d")
 daejeoncall$time2 <- format(daejeoncall$time2, format="%H:%M")
-daejeoncall$³¯Â¥ <- paste(daejeoncall$±âÁØ³â¿ùÀÏ,daejeoncall$time2,sep=" ")
-daejeoncall$³¯Â¥ <- as.POSIXct(daejeoncall$³¯Â¥, format="%Y-%m-%d %H:%M")
+daejeoncall$ë‚ ì§œ <- paste(daejeoncall$ê¸°ì¤€ë…„ì›”ì¼,daejeoncall$time2,sep=" ")
+daejeoncall$ë‚ ì§œ <- as.POSIXct(daejeoncall$ë‚ ì§œ, format="%Y-%m-%d %H:%M")
 summary(daejeoncall)
 
-#ÁöÁ¡ÄÚµå¸¦ ÄİÅÃ½Ã¿¡ ³Ö¾îÁÖ±â
-daejeoncall$ÁöÁ¡ÄÚµå <- ifelse(daejeoncall$¹ß½ÅÁö_½Ã±º±¸=="À¯¼º±¸",133,
-                         ifelse(daejeoncall$¹ß½ÅÁö_½Ã±º±¸=="Áß±¸"|daejeoncall$¹ß½ÅÁö_½Ã±º±¸=="¼­±¸",642,
-                                  ifelse(daejeoncall$¹ß½ÅÁö_½Ã±º±¸=="µ¿±¸",643,
-                                ifelse(daejeoncall$¹ß½ÅÁö_½Ã±º±¸=="´ë´ö±¸",648,0))))
+#ì§€ì ì½”ë“œë¥¼ ì½œíƒì‹œì— ë„£ì–´ì£¼ê¸°
+daejeoncall$ì§€ì ì½”ë“œ <- ifelse(daejeoncall$ë°œì‹ ì§€_ì‹œêµ°êµ¬=="ìœ ì„±êµ¬",133,
+                         ifelse(daejeoncall$ë°œì‹ ì§€_ì‹œêµ°êµ¬=="ì¤‘êµ¬"|daejeoncall$ë°œì‹ ì§€_ì‹œêµ°êµ¬=="ì„œêµ¬",642,
+                                  ifelse(daejeoncall$ë°œì‹ ì§€_ì‹œêµ°êµ¬=="ë™êµ¬",643,
+                                ifelse(daejeoncall$ë°œì‹ ì§€_ì‹œêµ°êµ¬=="ëŒ€ë•êµ¬",648,0))))
 
-###µ¿Áö¿ì°í °Ç¼öÇÕÇÏ±â###
+###ë™ì§€ìš°ê³  ê±´ìˆ˜í•©í•˜ê¸°###
 library(dplyr)
 daejeoncall <- daejeoncall %>% 
-  group_by(±âÁØ³â¿ùÀÏ,¿äÀÏ,½Ã°£´ë,¹ß½ÅÁö_½Ãµµ,¹ß½ÅÁö_½Ã±º±¸,time2,ÁöÁ¡ÄÚµå,³¯Â¥) %>%
-  summarise(new_n=sum(ÅëÈ­°Ç¼ö))
+  group_by(ê¸°ì¤€ë…„ì›”ì¼,ìš”ì¼,ì‹œê°„ëŒ€,ë°œì‹ ì§€_ì‹œë„,ë°œì‹ ì§€_ì‹œêµ°êµ¬,time2,ì§€ì ì½”ë“œ,ë‚ ì§œ) %>%
+  summarise(new_n=sum(í†µí™”ê±´ìˆ˜))
 
-daejeon_w$ÀÏ½Ã <- as.POSIXct(daejeon_w$ÀÏ½Ã,format="%Y-%m-%d %H:%M") 
+daejeon_w$ì¼ì‹œ <- as.POSIXct(daejeon_w$ì¼ì‹œ,format="%Y-%m-%d %H:%M") 
 
-#ÇÕÄ¡±â(³¯¾¾&ÄİÅÃ½Ã)
-daejeon <- merge(daejeoncall,daejeon_w,by.x=c("³¯Â¥","ÁöÁ¡ÄÚµå"),by.y=c("ÀÏ½Ã","ÁöÁ¡"),all.x=TRUE)
-daejeon$year <- lubridate::year(daejeon$±âÁØ³â¿ùÀÏ) 
-daejeon$month <- lubridate::month(daejeon$±âÁØ³â¿ùÀÏ) 
-daejeon$day <- lubridate::day(daejeon$±âÁØ³â¿ùÀÏ) 
-daejeon$±âÁØ³â¿ùÀÏ <- as.Date(daejeon$±âÁØ³â¿ùÀÏ,"%Y-%m-%d")
+#í•©ì¹˜ê¸°(ë‚ ì”¨&ì½œíƒì‹œ)
+daejeon <- merge(daejeoncall,daejeon_w,by.x=c("ë‚ ì§œ","ì§€ì ì½”ë“œ"),by.y=c("ì¼ì‹œ","ì§€ì "),all.x=TRUE)
+daejeon$year <- lubridate::year(daejeon$ê¸°ì¤€ë…„ì›”ì¼) 
+daejeon$month <- lubridate::month(daejeon$ê¸°ì¤€ë…„ì›”ì¼) 
+daejeon$day <- lubridate::day(daejeon$ê¸°ì¤€ë…„ì›”ì¼) 
+daejeon$ê¸°ì¤€ë…„ì›”ì¼ <- as.Date(daejeon$ê¸°ì¤€ë…„ì›”ì¼,"%Y-%m-%d")
 
-#holiday ºÎ¸£±â
+#holiday ë¶€ë¥´ê¸°
 holiday <- read.csv("holiday.csv")
 holiday$X <- as.Date(holiday$X,"%Y-%m-%d")
 holiday<-holiday[,-4]
 
-#holiday¶û ´ëÀü ÇÕÄ¡±â
-daejeon <- merge(daejeon,holiday,by.x = '±âÁØ³â¿ùÀÏ',by.y='X',all.x=TRUE)
+#holidayë‘ ëŒ€ì „ í•©ì¹˜ê¸°
+daejeon <- merge(daejeon,holiday,by.x = 'ê¸°ì¤€ë…„ì›”ì¼',by.y='X',all.x=TRUE)
 
-#daejeon_t¶û ´ë±â¿À¿° ÇÕÄ¡±â
+#daejeon_të‘ ëŒ€ê¸°ì˜¤ì—¼ í•©ì¹˜ê¸°
 library(readxl)
 air <- read_excel("air.xlsx")
 
-air$ÀÏ½Ã <- as.character(air$ÀÏ½Ã)
-air$ÀÏ½Ã <- as.Date(air$ÀÏ½Ã,"%Y%m%d")
-air$±¸ <- as.character(air$±¸)
-air$½Ã±º±¸ <- air$±¸
-air$½Ã±º±¸ <- as.factor(air$½Ã±º±¸)
+air$ì¼ì‹œ <- as.character(air$ì¼ì‹œ)
+air$ì¼ì‹œ <- as.Date(air$ì¼ì‹œ,"%Y%m%d")
+air$êµ¬ <- as.character(air$êµ¬)
+air$ì‹œêµ°êµ¬ <- air$êµ¬
+air$ì‹œêµ°êµ¬ <- as.factor(air$ì‹œêµ°êµ¬)
 air <- air[,-2]
 
-summary(daejeon_w)# ±â¿Â 29°³ NA
+summary(daejeon_w)# ê¸°ì˜¨ 29ê°œ NA
 daejeon2 <- daejeon[,-c(3,6,8)]
 
-daejeon_t <- merge(daejeon2,air,by.x=c('¹ß½ÅÁö_½Ã±º±¸','±âÁØ³â¿ùÀÏ'),by.y = c('½Ã±º±¸','ÀÏ½Ã'),all.x=TRUE)
+daejeon_t <- merge(daejeon2,air,by.x=c('ë°œì‹ ì§€_ì‹œêµ°êµ¬','ê¸°ì¤€ë…„ì›”ì¼'),by.y = c('ì‹œêµ°êµ¬','ì¼ì‹œ'),all.x=TRUE)
 colnames(daejeon_t)
 daejeon_t<-daejeon_t[,-14]
 
-####°­¼ö·® °áÃøÄ¡ Ã³¸® ¹× RAIN º¯¼ö »ı¼º
-daejeon_t$°­¼ö·®[is.na(daejeon_t$°­¼ö·®)]<-0
-daejeon_t$rain <- ifelse(daejeon_t$°­¼ö·®>0,1,0)
-summary(daejeon_t) #±â¿Â 131°³ NA ## WHY???
+####ê°•ìˆ˜ëŸ‰ ê²°ì¸¡ì¹˜ ì²˜ë¦¬ ë° RAIN ë³€ìˆ˜ ìƒì„±
+daejeon_t$ê°•ìˆ˜ëŸ‰[is.na(daejeon_t$ê°•ìˆ˜ëŸ‰)]<-0
+daejeon_t$rain <- ifelse(daejeon_t$ê°•ìˆ˜ëŸ‰>0,1,0)
+summary(daejeon_t) #ê¸°ì˜¨ 131ê°œ NA ## WHY???
 
 write.csv(daejeon_t,"daejeon_t.csv")
 
 
-####°áÃøÄ¡ Ã¤¿ì±â##########################################################
+####ê²°ì¸¡ì¹˜ ì±„ìš°ê¸°##########################################################
 library(mice)
 library(randomForest)
 #miceMod<-mice(daejeon_t[,!names(daejeon_t) %in% "new_n"],method="rf")
@@ -102,30 +102,30 @@ library(randomForest)
 ##########################################################################
 
 
-#####ÀüÃ³¸® start#####
+#####ì „ì²˜ë¦¬ start#####
 setwd("C:/Users/a4985/OneDrive/desktop/taxi/daejeon")
 daejeon_t<-read.csv("daejeon_t.csv")
 head(daejeon_t)
 daejeon_t<-daejeon_t[,-c(1)]
-daejeon_t<-daejeon_t[,-2]#±âÁØ³â¿ùÀÏ
-daejeon_t<-daejeon_t[,-2]#³¯Â¥
-daejeon_t$¿äÀÏ<-as.factor(daejeon_t$¿äÀÏ)
-daejeon_t$¹ß½ÅÁö_½Ã±º±¸<-as.factor(daejeon_t$¹ß½ÅÁö_½Ã±º±¸)
+daejeon_t<-daejeon_t[,-2]#ê¸°ì¤€ë…„ì›”ì¼
+daejeon_t<-daejeon_t[,-2]#ë‚ ì§œ
+daejeon_t$ìš”ì¼<-as.factor(daejeon_t$ìš”ì¼)
+daejeon_t$ë°œì‹ ì§€_ì‹œêµ°êµ¬<-as.factor(daejeon_t$ë°œì‹ ì§€_ì‹œêµ°êµ¬)
 daejeon_t$rain<-as.factor(daejeon_t$rain)
 daejeon_t$holiday<-as.factor(daejeon_t$holiday)
 daejeon_t$holiday1<-as.factor(daejeon_t$holiday1)
 
 summary(daejeon_t)
 
-####½Ã°£´ë È®ÀÎÇØº¸±â
-daejeon_t$½Ã°£´ë<-as.factor(daejeon_t$½Ã°£´ë)
+####ì‹œê°„ëŒ€ í™•ì¸í•´ë³´ê¸°
+daejeon_t$ì‹œê°„ëŒ€<-as.factor(daejeon_t$ì‹œê°„ëŒ€)
 
 library(ggplot2)
 mean_n <- daejeon_t %>%
-  group_by(½Ã°£´ë) %>%
+  group_by(ì‹œê°„ëŒ€) %>%
   summarise(mean = mean(new_n))
 median_n <- daejeon_t %>%
-  group_by(½Ã°£´ë) %>%
+  group_by(ì‹œê°„ëŒ€) %>%
   summarise(median = median(new_n))
 
 plot(median_n)
@@ -134,36 +134,36 @@ abline(h=30)
 abline(h=20)
 
 median_n$median
-median_n$½Ã°£´ë[which(median_n$median>=40)]
-median_n$½Ã°£´ë[which(median_n$median>=30 & median_n$median<40)]
-median_n$½Ã°£´ë[which(median_n$median>=20 & median_n$median<30)]
-median_n$½Ã°£´ë[which(median_n$median<20)]
+median_n$ì‹œê°„ëŒ€[which(median_n$median>=40)]
+median_n$ì‹œê°„ëŒ€[which(median_n$median>=30 & median_n$median<40)]
+median_n$ì‹œê°„ëŒ€[which(median_n$median>=20 & median_n$median<30)]
+median_n$ì‹œê°„ëŒ€[which(median_n$median<20)]
 
 
 ggplot(data=daejeon_t)+
-  geom_bar(mapping=aes(x=½Ã°£´ë,y=mean_n))
+  geom_bar(mapping=aes(x=ì‹œê°„ëŒ€,y=mean_n))
 ggplot(data=daejeon_t)+
-  geom_boxplot(mapping=aes(x=½Ã°£´ë,y=new_n))
+  geom_boxplot(mapping=aes(x=ì‹œê°„ëŒ€,y=new_n))
 
 ##group1 : 8,9,10,18
 ##group2 : 7,11:19
 ##group3 : 6,20:23
 ##group4 : 0:5
 
-###½Ã°£´ë groupÈ­###
-daejeon_t$½Ã°£´ë<-as.factor(daejeon_t$½Ã°£´ë)
-daejeon_t$time<-ifelse(daejeon_t$½Ã°£´ë %in% c(8,9,10,18),1,
-                       ifelse(daejeon_t$½Ã°£´ë %in% c(17,11:19),2,
-                              ifelse(daejeon_t$½Ã°£´ë %in% c(6,20:23),3,4)))
+###ì‹œê°„ëŒ€ groupí™”###
+daejeon_t$ì‹œê°„ëŒ€<-as.factor(daejeon_t$ì‹œê°„ëŒ€)
+daejeon_t$time<-ifelse(daejeon_t$ì‹œê°„ëŒ€ %in% c(8,9,10,18),1,
+                       ifelse(daejeon_t$ì‹œê°„ëŒ€ %in% c(17,11:19),2,
+                              ifelse(daejeon_t$ì‹œê°„ëŒ€ %in% c(6,20:23),3,4)))
 daejeon_t$time<-as.factor(daejeon_t$time)
-daejeon_t<-daejeon_t[,-3] #½Ã°£´ë »èÁ¦
+daejeon_t<-daejeon_t[,-3] #ì‹œê°„ëŒ€ ì‚­ì œ
 
 miceOutput<-read.csv("miceMod.csv")
 miceOutput$new_n<-daejeon_t$new_n
 daejeon_t<-miceOutput[,-c(1,4)]
 write.csv(daejeon_t,"daejeon_t_final.csv")
 
-###############ÃÖÁ¾¸ğµ¨·Î ÀüÃ³¸®#####
+###############ìµœì¢…ëª¨ë¸ë¡œ ì „ì²˜ë¦¬#####
 setwd("C:/Users/a4985/OneDrive/desktop/taxi/daejeon")
 daejeon_t<-read.csv("daejeon_t_final.csv")
 head(daejeon_t)
@@ -175,7 +175,7 @@ daejeon_t$rain<-as.factor(daejeon_t$rain)
 daejeon_t$holiday<-as.factor(daejeon_t$holiday)
 daejeon_t$holiday1<-as.factor(daejeon_t$holiday1)
 daejeon_t$time<-as.factor(daejeon_t$time)
-daejeon_t<-daejeon_t[,-c(10,11)]  #holiday »èÁ¦
+daejeon_t<-daejeon_t[,-c(10,11)]  #holiday ì‚­ì œ
 summary(daejeon_t)
 
 library(dplyr)
@@ -183,20 +183,20 @@ train <- daejeon_t %>% filter(year %in% c("2016","2017"))
 test<-daejeon_t %>% filter(year=="2018")
 head(train)
 
-###TODO : °áÃøÄ¡ Ã¤¿ì±â
+###TODO : ê²°ì¸¡ì¹˜ ì±„ìš°ê¸°
 (86501-69132)/86501
 train<-na.omit(train)
 (41832-33000)/41832
 test<-na.omit(test)
 
-############±¸º°·Î ³ª´©±â###############
+############êµ¬ë³„ë¡œ ë‚˜ëˆ„ê¸°###############
 summary(daejeon_t$gu)
 ####daedeok####
 daejeon_daedeok<-daejeon_t %>%
   filter(gu=="daedeok")
 summary(daejeon_daedeok)
 daejeon_daedeok<-na.omit(daejeon_daedeok)
-daejeon_daedeok<-daejeon_daedeok[,-1] #¹ß½ÅÁö½Ã±º±¸ Á¦°Å
+daejeon_daedeok<-daejeon_daedeok[,-1] #ë°œì‹ ì§€ì‹œêµ°êµ¬ ì œê±°
 train_daedeok<- daejeon_daedeok %>% filter(year %in% c("2016","2017"))
 test_daedeok<-daejeon_daedeok %>% filter(year=="2018")
 
