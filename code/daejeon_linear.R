@@ -1,6 +1,6 @@
 ######daegeon_modeling_linear regression#####
-#¿¹Ãø°ªÀÌ ¾ç¼ö->log transform
-####ÀüÃ¼¸¦ÀÌ¿ëÇÑºĞ¼®####
+#ì˜ˆì¸¡ê°’ì´ ì–‘ìˆ˜->log transform
+####ì „ì²´ë¥¼ì´ìš©í•œë¶„ì„####
 ###original_rmse###
 library(Metrics)
 set.seed(2019)
@@ -35,12 +35,12 @@ ggplot(data=obs_lm_all) + geom_point(mapping=aes(x=exp(real),y=exp(pred_lm_all))
 ggsave("pred_lm_all.jpg")
 
 
-#5ÀÌÇÏÀÎ°Íµé 5·ÎÀÏ°ıÀû¿ë
+#5ì´í•˜ì¸ê²ƒë“¤ 5ë¡œì¼ê´„ì ìš©
 #pred_lm_all<-ifelse(pred_lm_all<=log(5),log(5),pred_lm_all)
 #ggsave("pred_lm_all_5.jpg")
 
 
-######±¸º°·Î³ª´©¾îºĞ¼®####
+######êµ¬ë³„ë¡œë‚˜ëˆ„ì–´ë¶„ì„####
 #daedeok
 lm_daedeok<-lm(log(new_n)~.,data=train_daedeok)
 lm_daedeok_summary<-summary(lm_daedeok)
