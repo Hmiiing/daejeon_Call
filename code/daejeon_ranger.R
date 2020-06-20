@@ -1,5 +1,5 @@
 ######daejeon_modeling_randomforest###
-#####ÀüÃ¼¸¦ ÀÌ¿ëÇÑ ºĞ¼®####
+#####ì „ì²´ë¥¼ ì´ìš©í•œ ë¶„ì„####
 #p:25
 install.packages("ranger")
 library(ranger)
@@ -31,7 +31,7 @@ plot(import_all,horiz=TRUE,las=1,main="VI plot for RF_all")
 
 barplot(import_all,horiz=TRUE,las=1,main="VI plot for RF_all")
 
-#####±¸º°·Î ³ª´²¼­ ºĞ¼®#####
+#####êµ¬ë³„ë¡œ ë‚˜ëˆ ì„œ ë¶„ì„#####
 ###daedeok###
 set.seed(2019)
 random_daedeok <- ranger(log(new_n)~.,data=train_daedeok,mtry=7,importance='impurity',write.forest=TRUE)
