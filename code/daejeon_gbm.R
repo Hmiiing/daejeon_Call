@@ -17,7 +17,7 @@ lambdas[9]
 #0.01
 
 summary(train)
-####ÀüÃ¼¸¦ ÀÌ¿ëÇÑ ºĞ¼®####
+####ì „ì²´ë¥¼ ì´ìš©í•œ ë¶„ì„####
 install.packages("gbm")
 library(gbm)
 library(Metrics)
@@ -49,9 +49,9 @@ colnames(obs_all)<-c("real","yhat.boost_all")
 library(ggplot2)
 ggplot(data=exp(obs_all))+geom_point(mapping=aes(x=real,y=yhat.boost_all))+geom_abline(intercept= 0, slope=1, color='blue', size = 1.5)+ggtitle("daejeon_all_gbm")+theme(plot.title = element_text(family = "serif", face = "bold", hjust = 0.5, size = 25))
 ggsave("ypred_gbm_all.jpg")
-#time gu year Áß¿äº¯¼ö
+#time gu year ì¤‘ìš”ë³€ìˆ˜
 
-####±¸º°·Î ºĞ¸®ÇÑ ºĞ¼®####
+####êµ¬ë³„ë¡œ ë¶„ë¦¬í•œ ë¶„ì„####
 ###daedeok###
 set.seed(2019)
 
