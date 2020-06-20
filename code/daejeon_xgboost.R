@@ -1,5 +1,5 @@
 ######daejeon_modeling_xgboost#####
-####ÀüÃ¼¸¦ ÀÌ¿ëÇÑ ºĞ¼®####
+####ì „ì²´ë¥¼ ì´ìš©í•œ ë¶„ì„####
 #install.packages("xgboost")
 library(xgboost)
 library(Matrix)
@@ -91,7 +91,7 @@ conv_cs=melt(conv_cs,id.vars = "iter")
 which.min(RMSE_cs)
 #0.93
 
-########ÀüÃ¼model
+########ì „ì²´model
 bst_all<-xgboost(data=train_all,label=train_index_all,max_depth = 8, subsample=0.11, colsample_bylevel=0.93,
              eta = 0.03, nrounds = 100)
 importance_all <- xgb.importance(feature_names = colnames(train_all), model = bst_all)
@@ -111,7 +111,7 @@ ggsave("pred_xgb_all.jpg")
 
 
 
-###±¸º°·Î ³ª´²¼­
+###êµ¬ë³„ë¡œ ë‚˜ëˆ ì„œ
 ###daedeok###
 set.seed(2019)
 
