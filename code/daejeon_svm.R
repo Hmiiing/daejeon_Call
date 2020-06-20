@@ -1,6 +1,6 @@
 ######daejeon_modeling_svm#####
-#¿¹Ãø°ªÀÌ ¾ç¼ö->log transform
-####ÀüÃ¼¸¦ÀÌ¿ëÇÑºĞ¼®####
+#ì˜ˆì¸¡ê°’ì´ ì–‘ìˆ˜->log transform
+####ì „ì²´ë¥¼ì´ìš©í•œë¶„ì„####
 library(e1071)
 library(Metrics)
 set.seed(2019)
@@ -43,7 +43,7 @@ colnames(obs_all_r)<-c("real","pred_svm.rad_all")
 ggplot(data=exp(obs_all_r))+geom_point(mapping=aes(x=real,y=pred_svm.rad_all))+geom_abline(intercept= 0, slope=1, color='blue', size = 1.5)+ggtitle("daejeon_svm.rad_all")+theme(plot.title = element_text(family = "serif", face = "bold", hjust = 0.5, size = 25)) +xlab("obs")+ylab("pred")
 ggsave("pred_svm.rad_all.jpg")
 
-####±¸º° ºĞ¼®####
+####êµ¬ë³„ ë¶„ì„####
 
 ##daedeok###
 ###svm_lin###
